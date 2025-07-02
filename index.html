@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohib's Website</title>
+
+<style>
+    /* Base Styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f8f9fa;
+        color: #333;
+        line-height: 1.6;
+    }
+    
+    /* Layout */
+    .container {
+        width: 85%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+    
+    /* Header */
+    header {
+        background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        color: white;
+        padding: 2rem 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    #header-content {
+        text-align: center;
+    }
+    
+    #header-content h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+    }
+    
+    #header-content p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+    }
+    
+    /* Navigation */
+    nav {
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+    }
+    
+    .logo {
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: #333;
+        text-decoration: none;
+    }
+    
+    .nav-links {
+        display: flex;
+        list-style: none;
+    }
+    
+    .nav-links li {
+        margin-left: 1.5rem;
+    }
+    
+    .nav-links a {
+        text-decoration: none;
+        color: #555;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+    
+    .nav-links a:hover {
+        color: #2575fc;
+    }
+    
+    /* Main Content */
+    main {
+        padding: 3rem 0;
+    }
+    
+    .section {
+        margin-bottom: 3rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        color: #333;
+        position: relative;
+        padding-bottom: 0.5rem;
+    }
+    
+    .section-title::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 3px;
+        width: 60px;
+        background: linear-gradient(to right, #6a11cb, #2575fc);
+    }
+    
+    /* Cards */
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .card {
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+    
+    .card-img {
+        height: 200px;
+        background-color: #ddd;
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .card-content {
+        padding: 1.5rem;
+    }
+    
+    .card-title {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+        color: #333;
+    }
+    
+    .card-text {
+        color: #666;
+        margin-bottom: 1rem;
+    }
+    
+    .btn {
+        display: inline-block;
+        background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        color: white;
+        padding: 0.6rem 1.2rem;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: opacity 0.3s ease;
+    }
+    
+    .btn:hover {
+        opacity: 0.9;
+    }
+    
+    /* About Section */
+    .about-content {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+    
+    .about-img {
+        flex: 1;
+        min-width: 300px;
+        height: 300px;
+        background-color: #ddd;
+        border-radius: 8px;
+    }
+    
+    .about-text {
+        flex: 2;
+    }
+    
+    /* Contact Form */
+    .contact-form {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+    
+    .form-label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #555;
+        font-weight: 500;
+    }
+    
+    .form-input {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-family: inherit;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+    }
+    
+    .form-input:focus {
+        outline: none;
+        border-color: #2575fc;
+    }
+    
+    textarea.form-input {
+        min-height: 150px;
+        resize: vertical;
+    }
+    
+    /* Footer */
+    footer {
+        background-color: #333;
+        color: white;
+        padding: 2rem 0;
+    }
+    
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+    
+    .footer-section {
+        flex: 1;
+        min-width: 250px;
+    }
+    
+    .footer-title {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+        position: relative;
+        padding-bottom: 0.5rem;
+    }
+    
+    .footer-title::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 2px;
+        width: 40px;
+        background-color: #2575fc;
+    }
+    
+    .footer-links {
+        list-style: none;
+    }
+    
+    .footer-links li {
+        margin-bottom: 0.5rem;
+    }
+    
+    .footer-links a {
+        color: #ddd;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+        color: #2575fc;
+    }
+    
+    .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+    
+    .social-link {
+        display: inline-block;
+        width: 36px;
+        height: 36px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+    
+    .social-link:hover {
+        background-color: #2575fc;
+    }
+    
+    .copyright {
+        text-align: center;
+        padding-top: 2rem;
+        margin-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: #aaa;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .about-content {
+            flex-direction: column;
+        }
+        
+        .about-img {
+            width: 100%;
+        }
+        
+        .nav-container {
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .nav-links {
+            width: 100%;
+            justify-content: space-between;
+        }
+        
+        .nav-links li {
+            margin-left: 0;
+        }
+    }
+</style>
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo">Mohib's Portfolio</a>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container" id="header-content">
+            <h1>Mohib-Ur-Rehman</h1>
+            <p>Web Developer & Designer</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- About Section -->
+        <section id="about" class="section">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-img"></div>
+                <div class="about-text">
+                    <p>Hello! Welcome to my first website. I'm Mohib-Ur-Rehman, a passionate web developer and designer.</p>
+                    <p>I'm dedicated to creating beautiful, functional websites that provide great user experiences. This site showcases my skills and projects.</p>
+                    <p>Feel free to explore and get in touch if you'd like to collaborate on a project!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <h2 class="section-title">My Projects</h2>
+            <div class="cards">
+                <div class="card">
+                    <div class="card-img" style="background-color: #6a11cb;"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">Project One</h3>
+                        <p class="card-text">A brief description of this amazing project and the technologies used to build it.</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img" style="background-color: #2575fc;"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">Project Two</h3>
+                        <p class="card-text">A brief description of this amazing project and the technologies used to build it.</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img" style="background-color: #5e48e8;"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">Project Three</h3>
+                        <p class="card-text">A brief description of this amazing project and the technologies used to build it.</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-form">
+                <div class="form-group">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" id="name" class="form-input" placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" id="email" class="form-input" placeholder="Your Email">
+                </div>
+                <div class="form-group">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea id="message" class="form-input" placeholder="Your Message"></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3 class="footer-title">Mohib-Ur-Rehman</h3>
+                <p>A passionate web developer focused on creating beautiful and functional websites.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">FB</a>
+                    <a href="#" class="social-link">TW</a>
+                    <a href="#" class="social-link">IG</a>
+                    <a href="#" class="social-link">LI</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 class="footer-title">Contact Info</h3>
+                <ul class="footer-links">
+                    <li>Email: mohib@example.com</li>
+                    <li>Phone: +123 456 7890</li>
+                    <li>Location: City, Country</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container copyright">
+            <p>&copy; 2023 Mohib-Ur-Rehman. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
